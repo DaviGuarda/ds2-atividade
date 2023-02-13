@@ -33,7 +33,7 @@ public class Program2 {
             System.out.print("Digite a marca da televisão: ");
             entrada.nextLine();
             String marcaTV = entrada.nextLine();
-            Televisao televisao = new Televisao(marcaTV, Power.DESLIGADA, 0);
+            Televisao televisao = new Televisao(marcaTV);
             televisoes.add(televisao);
 
             System.out.println("STATUS = "+televisao);

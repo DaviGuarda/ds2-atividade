@@ -11,8 +11,8 @@ public class Televisao extends Eletronicos{
 
     public Televisao(){
     }
-    public Televisao(String marca, Power power, int volume) {
-        super(marca, power, volume);
+    public Televisao(String marca) {
+        super(marca);
     }
 
     public int[] getCanais() {

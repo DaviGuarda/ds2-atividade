@@ -10,8 +10,8 @@ public class Program3 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
 
-        Televisao quartoTV = new Televisao("Philips", Power.DESLIGADA,0);
-        Televisao salaTV = new Televisao("LG", Power.DESLIGADA,0);
+        Televisao quartoTV = new Televisao("Philips");
+        Televisao salaTV = new Televisao("LG");
 
         int escolherTV;
         do {

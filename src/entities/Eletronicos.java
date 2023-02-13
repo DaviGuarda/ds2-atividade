@@ -8,16 +8,16 @@ import org.jetbrains.annotations.NotNull;
 public abstract class Eletronicos {
     private String marca;
     private Power power;
-    private int volume = 0;
+    private int volume;
 
 
     public Eletronicos(){
     }
     @Contract(pure = true)
-    public Eletronicos(String marca, @NotNull Power power, int volume) {
+    public Eletronicos(String marca) {
         this.marca = marca;
-        this.power = power.DESLIGADA;
-        this.volume = volume;
+        power = Power.valueOf("DESLIGADA");
+        this.volume = 0;
     }
 
     public String getMarca() {

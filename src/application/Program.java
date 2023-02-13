@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Program {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        Televisao quartoTV = new Televisao("Philips", Power.DESLIGADA,0);
+        Televisao quartoTV = new Televisao("Philips");
 
         System.out.println("STATUS = "+quartoTV);
         System.out.println();
