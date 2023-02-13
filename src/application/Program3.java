@@ -11,7 +11,7 @@ public class Program3 {
         Scanner entrada = new Scanner(System.in);
 
         Televisao quartoTV = new Televisao("Philips", Power.DESLIGADA,0);
-        Televisao salaTV = new Televisao("Philips", Power.DESLIGADA,0);
+        Televisao salaTV = new Televisao("LG", Power.DESLIGADA,0);
 
         int escolherTV;
         do {
@@ -29,126 +29,11 @@ public class Program3 {
                 escolherTV = entrada.nextInt();
             }
 
-            if (escolherTV == 1 && quartoTV.getPower() == Power.DESLIGADA){
-                quartoTV.setPower(Power.valueOf("LIGADA"));
-                System.out.println("Televisão "+quartoTV.getPower());
-                System.out.println();
-
-            }
-
-            if (escolherTV == 2 && salaTV.getPower() == Power.DESLIGADA){
-                salaTV.setPower(Power.valueOf("LIGADA"));
-                System.out.println("Televisão "+salaTV.getPower());
-                System.out.println();
-
-            }
-
             if (escolherTV == 1){
-                    int opcaoDeEscolhaAumentarDiminuir;
-                    do {
-                        System.out.print("Deseja aumentar o volume da televisão (1) | diminuir (2) | sair (3): ");
-                        opcaoDeEscolhaAumentarDiminuir = entrada.nextInt();
-                        try {
-                            if (quartoTV.getPower() == Power.valueOf("LIGADA")) {
-                                if (opcaoDeEscolhaAumentarDiminuir == 1) {
-                                    quartoTV.aumentarVolume();
-                                    System.out.println("Volume aumentado para: " + quartoTV.getVolume() + "%");
-                                } else if (opcaoDeEscolhaAumentarDiminuir == 2) {
-                                    quartoTV.diminuirVolume();
-                                    System.out.println("Volume diminuido para: " + quartoTV.getVolume() + "%");
-                                }
-                            }
-                        } catch (TvException e) {
-                            System.out.println(e.getMessage());
-                            System.out.println();
-                        }
-                    } while (opcaoDeEscolhaAumentarDiminuir != 3);
-
-                    System.out.println();
-                    System.out.print("Deseja trocar de canal (1 - sim | 2 - não): ");
-                    int opcaoTrocarCanal = entrada.nextInt();
-                    if (quartoTV.getPower() == Power.valueOf("LIGADA")) {
-                        if (opcaoTrocarCanal == 1) {
-                            System.out.print("Digite o canal que deseja alterar: ");
-                            int canal = entrada.nextInt();
-                            try {
-                                quartoTV.pesquisarSeCanalExiste(canal);
-                                System.out.println();
-                            } catch (TvException e) {
-                                System.out.println(e.getMessage());
-                                System.out.println();
-                            }
-                        }
-                    }
-
-                    System.out.println("Deseja desligar a televisão (1) | não (2)");
-                    int opcaoDesligarLigar = entrada.nextInt();
-                    if (opcaoDesligarLigar == 1) {
-                        quartoTV.setPower(Power.valueOf("DESLIGADA"));
-                        System.out.println("Sua Televisão do quarto está " + quartoTV.getPower());
-                        System.out.println();
-                    }
-
-                    System.out.println();
-                    System.out.println("STATUS ATUALIZADO = " + quartoTV);
-            } else if (escolherTV == 2) {
-                if (salaTV.getPower() == Power.LIGADA) {
-                    System.out.println("Sua Televisão do quarto já está " + salaTV.getPower());
-                } else {
-                    salaTV.setPower(Power.valueOf("LIGADA"));
-                    System.out.println("Televisão " + salaTV.getPower());
-                    System.out.println();
-
-                    int opcaoDeEscolhaAumentarDiminuir;
-                    do {
-                        System.out.print("Deseja aumentar o volume da televisão (1) | diminuir (2) | sair (3): ");
-                        opcaoDeEscolhaAumentarDiminuir = entrada.nextInt();
-                        try {
-                            if (salaTV.getPower() == Power.valueOf("LIGADA")) {
-                                if (opcaoDeEscolhaAumentarDiminuir == 1) {
-                                    salaTV.aumentarVolume();
-                                    System.out.println("Volume aumentado para: " + salaTV.getVolume() + "%");
-                                } else if (opcaoDeEscolhaAumentarDiminuir == 2) {
-                                    salaTV.diminuirVolume();
-                                    System.out.println("Volume diminuido para: " + salaTV.getVolume() + "%");
-                                }
-                            }
-                        } catch (TvException e) {
-                            System.out.println(e.getMessage());
-                            System.out.println();
-                        }
-                    } while (opcaoDeEscolhaAumentarDiminuir != 3);
-
-                    System.out.println();
-                    System.out.print("Deseja trocar de canal (1 - sim | 2 - não): ");
-                    int opcaoTrocarCanal = entrada.nextInt();
-                    if (salaTV.getPower() == Power.valueOf("LIGADA")) {
-                        if (opcaoTrocarCanal == 1) {
-                            System.out.print("Digite o canal que deseja alterar: ");
-                            int canal = entrada.nextInt();
-                            try {
-                                salaTV.pesquisarSeCanalExiste(canal);
-                                System.out.println();
-                            } catch (TvException e) {
-                                System.out.println(e.getMessage());
-                                System.out.println();
-                            }
-                        }
-                    }
-
-                    System.out.println("Deseja desligar a televisão (1) | não (2)");
-                    int opcaoDesligarLigar = entrada.nextInt();
-                    if (opcaoDesligarLigar == 1) {
-                        salaTV.setPower(Power.valueOf("DESLIGADA"));
-                        System.out.println("Sua Televisão do quarto está " + salaTV.getPower());
-                        System.out.println();
-                    } else {
-                        System.out.println("Sua televisão ainda está " + salaTV.getPower());
-                    }
-
-                    System.out.println();
-                    System.out.println("STATUS ATUALIZADO = " + salaTV);
-                }
+                mostrarFuncionalidades(entrada, quartoTV);
+            }
+            if (escolherTV == 2) {
+                mostrarFuncionalidades(entrada, salaTV);
             }
 
         }while(escolherTV != 3);
@@ -161,5 +46,61 @@ public class Program3 {
 
 
         entrada.close();
+    }
+
+    private static void mostrarFuncionalidades(Scanner entrada, Televisao televisao) {
+        if (televisao.getPower() == Power.LIGADA) {
+            System.out.println("Sua Televisão do quarto já está " + televisao.getPower());
+        } else {
+            televisao.setPower(Power.valueOf("LIGADA"));
+            System.out.println("Televisão " + televisao.getPower());
+            System.out.println();
+        }
+        int opcaoDeEscolhaAumentarDiminuir;
+        do {
+            System.out.print("Deseja aumentar o volume da televisão (1) | diminuir (2) | sair (3): ");
+            opcaoDeEscolhaAumentarDiminuir = entrada.nextInt();
+            try {
+                if (televisao.getPower() == Power.valueOf("LIGADA")) {
+                    if (opcaoDeEscolhaAumentarDiminuir == 1) {
+                        televisao.aumentarVolume();
+                        System.out.println("Volume aumentado para: " + televisao.getVolume() + "%");
+                    } else if (opcaoDeEscolhaAumentarDiminuir == 2) {
+                        televisao.diminuirVolume();
+                        System.out.println("Volume diminuido para: " + televisao.getVolume() + "%");
+                    }
+                }
+            } catch (TvException e) {
+                System.out.println(e.getMessage());
+                System.out.println();
+            }
+        } while (opcaoDeEscolhaAumentarDiminuir != 3);
+
+        System.out.println();
+        System.out.print("Deseja trocar de canal (1 - sim | 2 - não): ");
+        int opcaoTrocarCanal = entrada.nextInt();
+        if (televisao.getPower() == Power.valueOf("LIGADA")) {
+            if (opcaoTrocarCanal == 1) {
+                System.out.print("Digite o canal que deseja alterar: ");
+                int canal = entrada.nextInt();
+                try {
+                    televisao.mudarCanal(canal);
+                    System.out.println();
+                } catch (TvException e) {
+                    System.out.println(e.getMessage());
+                    System.out.println();
+                }
+            }
+        }
+
+        System.out.println("Deseja desligar a televisão (1) | não (2)");
+        int opcaoDesligarLigar = entrada.nextInt();
+        if (opcaoDesligarLigar == 1) {
+            televisao.setPower(Power.valueOf("DESLIGADA"));
+            System.out.println("Sua Televisão do quarto está " + televisao.getPower());
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("STATUS ATUALIZADO = " + televisao);
     }
 }

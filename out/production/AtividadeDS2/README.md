@@ -26,3 +26,8 @@ Ligar ou desligar
 Alterar o canal
 Aumentar volume
 Diminuir volume
+
+
+OBS: Existem 3 programas principais, o primeiro é apenas um teste para ver se está tudo funcionando da maneira correta,
+o segundo é baseado em clean code, e o terceiro é como foi proposto pela senhora, espero
+que esse readme seja visto. :)

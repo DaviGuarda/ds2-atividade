@@ -31,7 +31,7 @@ public class Televisao extends Eletronicos{
         this.canalAtual = canalAtual;
     }
 
-    public void pesquisarSeCanalExiste(int canalEscolhido){
+    public void mudarCanal(int canalEscolhido){
         int inicio = 0;
         int meio = 0;
         int fim = canais.length - 1;

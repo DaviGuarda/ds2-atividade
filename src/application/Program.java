@@ -49,7 +49,7 @@ public class Program {
                     System.out.print("Digite o canal que deseja alterar: ");
                     int canal = entrada.nextInt();
                     try{
-                        quartoTV.pesquisarSeCanalExiste(canal);
+                        quartoTV.mudarCanal(canal);
                         System.out.println();
                     }catch (TvException e){
                         System.out.println(e.getMessage());
